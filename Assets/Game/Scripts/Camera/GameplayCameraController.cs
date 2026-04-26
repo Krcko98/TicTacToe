@@ -25,11 +25,6 @@ namespace Game.CameraNS
             { CameraState.look, "LookCamera" }
         };
 
-        private void Start()
-        {
-            Init();
-        }
-
         public void Init()
         {
             SetState(CameraState.look);

@@ -7,6 +7,7 @@ using Game.Delegate;
 using Game.Popup.Menu;
 using Game.Popup.Data;
 using Game.Save.Stats;
+using Game.Manager;
 
 namespace Game.Menu
 {
@@ -98,7 +99,7 @@ namespace Game.Menu
         #region StartGamePopup
         private void gameStarted(IPopup popup)
         {
-            Debug.Log("Start game");
+            GameloopManager.Instance.StartGame();
         }
 
         private void gameDeclined(IPopup popup)

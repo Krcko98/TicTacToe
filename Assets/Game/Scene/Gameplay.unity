@@ -341,12 +341,12 @@ MonoBehaviour:
   AnimatedTarget: {fileID: 385040052}
   LayerIndex: 0
   Instructions:
-  - FullHash: -553938298
-    Camera: {fileID: 1795851506}
-    ActivateAfter: 0.5
-    MinDuration: 1
   - FullHash: -1268597232
     Camera: {fileID: 670206369}
+    ActivateAfter: 0.5
+    MinDuration: 1
+  - FullHash: -553938298
+    Camera: {fileID: 1795851506}
     ActivateAfter: 0.5
     MinDuration: 1
   HashOfParent:
@@ -1069,7 +1069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 1
-    m_Value: 0
+    m_Value: 1
   OutputChannel: 1
   StandbyUpdate: 0
   m_StreamingVersion: 20241001
@@ -1255,7 +1255,7 @@ GameObject:
   - component: {fileID: 789714050}
   - component: {fileID: 789714049}
   m_Layer: 0
-  m_Name: MainMenu
+  m_Name: UIController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1624,6 +1624,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1011064010}
+  - component: {fileID: 1011064011}
   m_Layer: 0
   m_Name: Board
   m_TagString: Untagged
@@ -1649,6 +1650,18 @@ Transform:
   - {fileID: 2126915015}
   m_Father: {fileID: 1325505784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1011064011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011064009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e93dfe1cb2bde461db683b2a3a0b69bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Gameplay.Board.GameBoard
 --- !u!224 &1038604795 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8722839588344313245, guid: aa7ba245ca3d6437985f8a779d65dc88, type: 3}
@@ -2383,6 +2396,51 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429279650}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1491251312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1491251313}
+  - component: {fileID: 1491251314}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1491251313
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491251312}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1491251314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491251312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 323403db8fd0e4131bcc511a3ce72d37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.Gameplay.GameController
+  cameraController: {fileID: 612721882}
 --- !u!1 &1497874220
 GameObject:
   m_ObjectHideFlags: 0
@@ -2521,7 +2579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
   Priority:
     Enabled: 1
-    m_Value: 1
+    m_Value: 0
   OutputChannel: 1
   StandbyUpdate: 0
   m_StreamingVersion: 20241001
@@ -5115,6 +5173,7 @@ SceneRoots:
   - {fileID: 1185449581}
   - {fileID: 2038881316}
   - {fileID: 789714050}
+  - {fileID: 1491251313}
   - {fileID: 612721881}
   - {fileID: 447149379}
   - {fileID: 908236948}

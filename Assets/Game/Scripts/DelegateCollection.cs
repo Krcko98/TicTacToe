@@ -1,5 +1,7 @@
+using Game.Gameplay.Board.Tile;
 using Popup;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Game.Delegate
 {
@@ -18,6 +20,12 @@ namespace Game.Delegate
         public delegate void OnStartGameSelectedDelegate();
         #endregion
 
+        #endregion
+
+        #region Gameplay
+        public delegate void OnTilePointerEnterDelegate(PointerEventData eventData, BoardTile tile);
+        public delegate void OnTilePointerExitDelegate(PointerEventData eventData, BoardTile tile);
+        public delegate void OnTilePointerClickDelegate(PointerEventData eventData, BoardTile tile);
         #endregion
     }
 }
