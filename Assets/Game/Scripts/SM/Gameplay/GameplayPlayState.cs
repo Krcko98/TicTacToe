@@ -12,6 +12,8 @@ namespace Game.SM.Gameplay
     public class GameplayPlayState : SMState
     {
         private GameplayPlayStateData data;
+        private float timeStart = 0f;
+        private bool timeCounting = false;
 
         public override void Init<T>(T data)
         {
@@ -23,6 +25,9 @@ namespace Game.SM.Gameplay
             GameController.Instance.OnTileSelected += tileSelected;
 Debug.Log("playing");
             GameController.Instance.gameData.currentActivePlayer = 1;
+            
+            timeCounting = true;
+            timeStart = Time.time;
         }
 
         private void tileSelected(BoardTile tile, PointerEventData data)
@@ -34,19 +39,14 @@ Debug.Log("playing");
 
             GameController.Instance.gameData.currentActivePlayer = player == 1 ? 2 : 1;
             GameController.Instance.gameData.turnAmount++;
+            if(player == 1)
+                GameController.Instance.gameData.turnPlayer1++;
+            else
+                GameController.Instance.gameData.turnPlayer2++;
+
+            GameController.Instance.HUD.SetMoveCount(GameController.Instance.gameData.turnPlayer1, GameController.Instance.gameData.turnPlayer2);
 
             GameBoardStatus boardStatus = GameController.Instance.GameBoard.GetBoardStatus();
-
-            for(int i=0; i<3; i++)
-            {
-                Debug.LogFormat("{0} {1} {2}", 
-                    GameController.Instance.GameBoard.Board[i][0],
-                    GameController.Instance.GameBoard.Board[i][1],
-                    GameController.Instance.GameBoard.Board[i][2]
-                );
-            }
-
-            //Debug.Log(boardStatus.matchingStatus);
 
             if(boardStatus.matchingStatus != 0)
             {
@@ -62,12 +62,17 @@ Debug.Log("playing");
 
         public override void Loop()
         {
+            if(!timeCounting) return;
             
+            GameController.Instance.gameData.timePassed = Time.time - timeStart;
+            GameController.Instance.HUD.SetTime(GameController.Instance.gameData.timePassed);
         }
 
         public override void Exit()
         {
             GameController.Instance.OnTileSelected -= tileSelected;
+            timeStart = 0;
+            timeCounting = false;
         }
     }
 }

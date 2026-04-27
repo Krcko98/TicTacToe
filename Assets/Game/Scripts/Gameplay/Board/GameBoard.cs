@@ -156,7 +156,6 @@ namespace Game.Gameplay.Board
             boardData = data;
 
             boardResults.Add(new GameBoardResult(horizontal1, "h1"));
-            Debug.LogFormat("{0} {1} {2}", horizontal1[0][0], horizontal1[0][1], horizontal1[0][2]);
             boardResults.Add(new GameBoardResult(horizontal2, "h2")); 
             boardResults.Add(new GameBoardResult(horizontal3, "h3"));
             boardResults.Add(new GameBoardResult(vertical1, "v1")); 

@@ -47,7 +47,8 @@ namespace Game.SM
 
         public void UpdateSM()
         {
-            CurrentState.Loop();
+            if(CurrentState != null)
+                CurrentState.Loop();
         }
 
         public void ChangeState(GameplayState state)
