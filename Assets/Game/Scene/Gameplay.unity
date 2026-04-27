@@ -647,7 +647,7 @@ Camera:
     height: 1
   near clip plane: 0.1
   far clip plane: 100
-  field of view: 39.999966
+  field of view: 72.767555
   orthographic: 0
   orthographic size: 10
   m_Depth: -1
@@ -673,8 +673,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.43532455, y: -0.00000022010498, z: 0.00000010643109, w: 0.9002736}
-  m_LocalPosition: {x: 1.500002, y: 5.3838434, z: -2.765362}
+  m_LocalRotation: {x: 0.029196162, y: 0.2914723, z: -0.008900681, w: 0.9560922}
+  m_LocalPosition: {x: -59.775246, y: 6.6928296, z: -89.60736}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -742,7 +742,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1261985810990325989, guid: c30cf7ce3a91a4e91ba9befb45c0ccfd, type: 3}
       propertyPath: m_fontSize
-      value: 133.65
+      value: 73.9
       objectReference: {fileID: 0}
     - target: {fileID: 4536036360071535675, guid: c30cf7ce3a91a4e91ba9befb45c0ccfd, type: 3}
       propertyPath: m_Name
@@ -1029,6 +1029,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::CameraController
   cameraStateAnim: {fileID: 385040052}
   stateDrivenCamera: {fileID: 385040050}
+  targetGroup: {fileID: 1221515561}
 --- !u!1 &625733475
 GameObject:
   m_ObjectHideFlags: 0
@@ -2113,7 +2114,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 222.75
+  m_fontSize: 85.55
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2250,7 +2251,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 121.8
+  m_fontSize: 48
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

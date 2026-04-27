@@ -1,4 +1,5 @@
 using Game.Save.Stats;
+using Game.ScreenNS;
 using UnityEngine;
 
 namespace Game.Manager
@@ -11,6 +12,7 @@ namespace Game.Manager
         [SerializeField] private GlobalStats globalStats;
         [SerializeField] private SceneManager sceneManager;
         [SerializeField] private ThemeManager themeManager;
+        [SerializeField] private ScreenSettings screenSettings;
 
         public void Awake()
         {
@@ -28,6 +30,7 @@ namespace Game.Manager
 
         public void Init()
         {
+            screenSettings.Init();
             globalStats.Init();
             sceneManager.Init();
             gameLoopManager.Init();

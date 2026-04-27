@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbeba6a980604420964e0051a5dc21a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Manager.GameloopManager
-  GameState: 0
 --- !u!1 &5257358992920654384
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +187,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6189a5c5880104936b4b72acbda8f789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Game::Game.Manager.SceneManager
+--- !u!1 &5691712559447449242
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753731863667311865}
+  - component: {fileID: 4306584052859657420}
+  m_Layer: 0
+  m_Name: ScreenSettings
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1753731863667311865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691712559447449242}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2778185447873852010}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4306584052859657420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691712559447449242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e57d04635834f7a9015e4548f2bafa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Game::Game.ScreenNS.ScreenSettings
 --- !u!1 &5817105731840329835
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +310,7 @@ Transform:
   - {fileID: 7263091271756222724}
   - {fileID: 2550798989314104981}
   - {fileID: 5134049702647083175}
+  - {fileID: 1753731863667311865}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6167430311516448385
@@ -285,3 +329,4 @@ MonoBehaviour:
   globalStats: {fileID: 8686502003854063263}
   sceneManager: {fileID: 8602132378882742969}
   themeManager: {fileID: 4680093532141724229}
+  screenSettings: {fileID: 4306584052859657420}

@@ -5,6 +5,7 @@ using Game.CameraNS.Utils;
 using System;
 using Tasks.CoroutineExtension;
 using Tasks.CoroutineExtension.Presets;
+using Game.ScreenNS;
 
 namespace Game.CameraNS
 {
@@ -33,6 +34,9 @@ namespace Game.CameraNS
 
         public void Init()
         {
+            ScreenSettings.ChangeScreenSize += changeScreenSize;
+            changeScreenSize(ScreenSettings.Orientation);
+
             SetState(CameraState.look);
         }
 
@@ -48,6 +52,11 @@ namespace Game.CameraNS
                     () => BlendFinished?.Invoke(state)
                 )
             );
+        }
+
+        private void changeScreenSize(ScreenSettings.ScreenOrientation orientation)
+        {
+            targetGroup.Targets.ForEach(x => x.Radius = (orientation == ScreenSettings.ScreenOrientation.tall ? 0.5f : 2.2f));
         }
     }
 }
