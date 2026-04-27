@@ -1,6 +1,7 @@
 using Game.Gameplay;
 using Game.Gameplay.Board.Tile;
 using Game.Manager;
+using Game.Popup.Data;
 using Game.SM;
 using Game.SM.Gameplay.Data;
 using UnityEngine;
@@ -50,6 +51,7 @@ Debug.Log("playing");
 
             if(boardStatus.matchingStatus != 0)
             {
+                GameController.Instance.gameData.winningPlayer = boardStatus.matchingStatus;
                 this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
             }
             
@@ -63,7 +65,7 @@ Debug.Log("playing");
         public override void Loop()
         {
             if(!timeCounting) return;
-            
+
             GameController.Instance.gameData.timePassed = Time.time - timeStart;
             GameController.Instance.HUD.SetTime(GameController.Instance.gameData.timePassed);
         }

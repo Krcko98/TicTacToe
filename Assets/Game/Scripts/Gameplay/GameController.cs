@@ -5,6 +5,7 @@ using Game.Gameplay.Board;
 using Game.Gameplay.Board.Data;
 using Game.Gameplay.Board.Tile;
 using Game.Menu.GameplayHUD;
+using Game.Popup.Menu;
 using Game.SM;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -20,11 +21,13 @@ namespace Game.Gameplay
             public int turnPlayer1 = 0;
             public int turnPlayer2 = 0;
             public float timePassed = 0;
+            public int winningPlayer = 0;
         }
 
         [SerializeField] private GameplayCameraController cameraController;
         [SerializeField] private GameBoard gameBoard;
         [SerializeField] private GameplayHUD gameUI;
+        [SerializeField] private EndgamePopup endGamePopup;
 
         //Game data
         public GameData gameData = new GameData();
@@ -38,7 +41,7 @@ namespace Game.Gameplay
         public GameplayCameraController CameraController { get => cameraController; }
         public GameBoard GameBoard { get => gameBoard; }
         public GameplayHUD HUD { get => gameUI; }
-
+        public EndgamePopup EndGamePopup { get => endGamePopup; }
 
         public void Awake()
         {
@@ -61,6 +64,7 @@ namespace Game.Gameplay
             gameData.timePassed = 0;
             gameData.turnPlayer1 = 0;
             gameData.turnPlayer2 = 0;
+            gameData.winningPlayer = 0;
 
             cameraController.Init();
             gameBoard.Init(new GameBoardData(

@@ -48,7 +48,6 @@ namespace Game.SM
         public void ChangeState(GameloopState state)
         {
             if(CurrentState != null) CurrentState.Exit();
-
             CurrentState = states[state];
             CurrentState.Enter();
         }

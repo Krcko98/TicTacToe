@@ -12,6 +12,7 @@ namespace Game.CameraNS
     {
         [SerializeField] private Animator cameraStateAnim;
         [SerializeField] private CinemachineStateDrivenCamera stateDrivenCamera;
+        [SerializeField] private CinemachineTargetGroup targetGroup;
 
         public static event Action<CameraState> BlendFinished;
 

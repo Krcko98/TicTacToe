@@ -5,8 +5,6 @@ namespace Game.Manager
 {
     public class GameloopManager : MonoBehaviour
     {
-        public SMGameloop.GameloopState GameState = SMGameloop.GameloopState.init;
-        
         private SMGameloop smGameloop;
 
         public static GameloopManager Instance = null;
@@ -30,6 +28,16 @@ namespace Game.Manager
         public void StartGame()
         {
             smGameloop.ChangeState(SMGameloop.GameloopState.gameplay);
+        }
+
+        public void ReturnToMainMenu()
+        {
+            smGameloop.ChangeState(SMGameloop.GameloopState.mainMenu);
+        }
+
+        public void RestartGame()
+        {
+            StartGame();
         }
     }
 }
