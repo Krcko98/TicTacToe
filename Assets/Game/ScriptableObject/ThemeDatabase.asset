@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c2fe71c1c1b4bc2969032c9955a479, type: 3}
   m_Name: ThemeDatabase
   m_EditorClassIdentifier: Game::Game.Save.Theme.ThemeDatabaseSO
+  ActiveTheme: {fileID: 11400000, guid: 9079a2b78ee5c4cd0af75154001d5d6c, type: 2}
   availableThemes:
   - {fileID: 11400000, guid: 9079a2b78ee5c4cd0af75154001d5d6c, type: 2}

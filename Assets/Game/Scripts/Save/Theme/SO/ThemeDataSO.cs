@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Game.Gameplay.Board.Tile;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ namespace Game.Save.Theme
     {
         public string themeName;
         public GameObject gameEnvironment;
-        public BoardTileObject tileObject;
+        public BoardTile tile;
+        public List<BoardTileObject> tileObject;
     }
 }

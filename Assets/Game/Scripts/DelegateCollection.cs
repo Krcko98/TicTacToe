@@ -23,9 +23,9 @@ namespace Game.Delegate
         #endregion
 
         #region Gameplay
-        public delegate void OnTilePointerEnterDelegate(PointerEventData eventData, BoardTile tile);
-        public delegate void OnTilePointerExitDelegate(PointerEventData eventData, BoardTile tile);
-        public delegate void OnTilePointerClickDelegate(PointerEventData eventData, BoardTile tile);
+        public delegate void OnTilePointerEnterDelegate(BoardTile tile, PointerEventData eventData);
+        public delegate void OnTilePointerExitDelegate(BoardTile tile, PointerEventData eventData);
+        public delegate void OnTilePointerClickDelegate(BoardTile tile, PointerEventData eventData);
         #endregion
     }
 }

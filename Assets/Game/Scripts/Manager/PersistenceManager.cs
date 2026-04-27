@@ -10,6 +10,7 @@ namespace Game.Manager
         [SerializeField] private GameloopManager gameLoopManager;
         [SerializeField] private GlobalStats globalStats;
         [SerializeField] private SceneManager sceneManager;
+        [SerializeField] private ThemeManager themeManager;
 
         public void Awake()
         {
@@ -30,6 +31,7 @@ namespace Game.Manager
             globalStats.Init();
             sceneManager.Init();
             gameLoopManager.Init();
+            themeManager.Init();
         }
     }
 

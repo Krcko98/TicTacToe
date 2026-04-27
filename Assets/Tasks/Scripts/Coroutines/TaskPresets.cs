@@ -57,5 +57,20 @@ namespace Tasks.CoroutineExtension.Presets
                 callback();
             }
         }
+
+        /// <summary>
+        /// Wait for seconds
+        /// </summary>
+        /// <param name="callback">Method to be called after coroutine has finished</param>
+        /// <returns></returns>
+        public static IEnumerator waitForSeconds(float seconds, Action callback = null)
+        {
+            yield return new WaitForSeconds(seconds);
+
+            if (callback != null)
+            {
+                callback();
+            }
+        }
     }
 }

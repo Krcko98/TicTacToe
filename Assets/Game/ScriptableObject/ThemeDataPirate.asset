@@ -13,5 +13,8 @@ MonoBehaviour:
   m_Name: ThemeDataPirate
   m_EditorClassIdentifier: Game::Game.Save.Theme.ThemeDataSO
   themeName: Pirate
-  gameEnvironment: {fileID: 0}
-  tileObject: {fileID: 0}
+  gameEnvironment: {fileID: 5456275850897304294, guid: 9817fa18b5d2340b1982873e2b0b2f1c, type: 3}
+  tile: {fileID: 8872450864283951417, guid: 3950e75de07834e898ab9fbceb00b41e, type: 3}
+  tileObject:
+  - {fileID: -3303874152353379814, guid: 4721c715ae0ee41a9a74938d886014ce, type: 3}
+  - {fileID: 4601409802996914572, guid: dc6b21405015b4608805ce5d316ac152, type: 3}

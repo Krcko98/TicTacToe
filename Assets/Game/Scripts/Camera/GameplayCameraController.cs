@@ -2,6 +2,9 @@ using UnityEngine;
 using Unity.Cinemachine;
 using System.Collections.Generic;
 using Game.CameraNS.Utils;
+using System;
+using Tasks.CoroutineExtension;
+using Tasks.CoroutineExtension.Presets;
 
 namespace Game.CameraNS
 {
@@ -9,8 +12,10 @@ namespace Game.CameraNS
     {
         [SerializeField] private Animator cameraStateAnim;
         [SerializeField] private CinemachineStateDrivenCamera stateDrivenCamera;
-        [SerializeField] private Camera mainCamera;
-        [SerializeField] private CinemachineCamera cineCamera;
+
+        public static event Action<CameraState> BlendFinished;
+
+        private Task blendingTask;
 
         public enum CameraState
         {
@@ -32,10 +37,16 @@ namespace Game.CameraNS
 
         public void SetState(CameraState state)
         {
-            if(!cameraStateAnim.GetCurrentAnimatorStateInfo(0).IsName(states[state]))
-            {
-                cameraStateAnim.Play(states[state]);
-            }
+            if(cameraStateAnim.GetCurrentAnimatorStateInfo(0).IsName(states[state])) return;
+
+            cameraStateAnim.Play(states[state]);
+
+            blendingTask = new Task(
+                TaskPresets.waitForSeconds(
+                    3f,
+                    () => BlendFinished?.Invoke(state)
+                )
+            );
         }
     }
 }
