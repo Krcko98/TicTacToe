@@ -5,6 +5,7 @@ using Game.SM;
 using Game.SM.Gameplay.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static Game.Gameplay.Board.GameBoard;
 
 namespace Game.SM.Gameplay
 {
@@ -26,19 +27,36 @@ Debug.Log("playing");
 
         private void tileSelected(BoardTile tile, PointerEventData data)
         {
-            if(GameController.Instance.gameData.currentActivePlayer == 1)
-            {
-                tile.SetObject(ThemeManager.ActiveTheme.tileObject.Find(x => x.BoardObjectType == Game.Gameplay.Board.GameBoard.BoardObjectType.X));
-                GameController.Instance.GameBoard.Board[tile.BoardLocation.x][tile.BoardLocation.y] = 1;
+            int player = GameController.Instance.gameData.currentActivePlayer;
 
-                GameController.Instance.gameData.currentActivePlayer = 2;
+            tile.SetObject(ThemeManager.ActiveTheme.tileObject.Find(x => x.BoardObjectType == (BoardObjectType)(player-1)));
+            GameController.Instance.GameBoard.Board[tile.BoardLocation.x][tile.BoardLocation.y] = player;
+
+            GameController.Instance.gameData.currentActivePlayer = player == 1 ? 2 : 1;
+            GameController.Instance.gameData.turnAmount++;
+
+            GameBoardStatus boardStatus = GameController.Instance.GameBoard.GetBoardStatus();
+
+            for(int i=0; i<3; i++)
+            {
+                Debug.LogFormat("{0} {1} {2}", 
+                    GameController.Instance.GameBoard.Board[i][0],
+                    GameController.Instance.GameBoard.Board[i][1],
+                    GameController.Instance.GameBoard.Board[i][2]
+                );
             }
-            else
-            {
-                tile.SetObject(ThemeManager.ActiveTheme.tileObject.Find(x => x.BoardObjectType == Game.Gameplay.Board.GameBoard.BoardObjectType.O));
-                GameController.Instance.GameBoard.Board[tile.BoardLocation.x][tile.BoardLocation.y] = 2;
 
-                GameController.Instance.gameData.currentActivePlayer = 1;
+            //Debug.Log(boardStatus.matchingStatus);
+
+            if(boardStatus.matchingStatus != 0)
+            {
+                this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
+            }
+            
+            if(GameController.Instance.gameData.turnAmount == 9)
+            {
+                Debug.Log("Draw");
+                this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
             }
         }
 

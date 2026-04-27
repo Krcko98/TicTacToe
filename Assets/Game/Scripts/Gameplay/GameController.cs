@@ -1,3 +1,4 @@
+using System;
 using Game.CameraNS;
 using Game.Delegate;
 using Game.Gameplay.Board;
@@ -14,6 +15,8 @@ namespace Game.Gameplay
         public class GameData
         {
             public int currentActivePlayer = 1;
+            public int turnAmount = 0;
+            public float timePassed = 0;
         }
 
         [SerializeField] private GameplayCameraController cameraController;
@@ -44,6 +47,8 @@ namespace Game.Gameplay
         {
             //Data setup
             gameData.currentActivePlayer = 1;
+            gameData.turnAmount = 0;
+            gameData.timePassed = 0;
 
             cameraController.Init();
             gameBoard.Init(new GameBoardData(
