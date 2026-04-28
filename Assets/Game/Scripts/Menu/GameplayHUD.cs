@@ -26,7 +26,7 @@ namespace Game.Menu.GameplayHUD
 
         public void SetMoveCount(int player1, int player2)
         {
-            moveCount.text = string.Format("Moves <br>(P1: {0} P2: {1})", player1, player2);
+            moveCount.text = string.Format("Moves (P1: {0} P2: {1})", player1, player2);
         }
 
         private void settingsClicked()
