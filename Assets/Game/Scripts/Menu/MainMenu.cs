@@ -8,6 +8,7 @@ using Game.Popup.Menu;
 using Game.Popup.Data;
 using Game.Save.Stats;
 using Game.Manager;
+using Popup.UI;
 
 namespace Game.Menu
 {
@@ -20,8 +21,7 @@ namespace Game.Menu
 
         [SerializeField] private StartGamePopup startPopup;
         [SerializeField] private StatsPopup statsPopup;
-        /*[SerializeField]
-        [SerializeField]*/
+        [SerializeField] private SettingsPopup settingsPopup;
 
         public static event DelegateCollection.OnPlaySelectedDelegate OnStartGameSelected;
         public static event DelegateCollection.OnStatsSelectedDelegate OnStatsSelected; 
@@ -42,7 +42,7 @@ namespace Game.Menu
         {
             startGameButton.onClick.AddListener(startSelected);
             statsButton.onClick.AddListener(statsSelected);
-            //settingsButton.onClick.AddListener(settingsSelected);
+            settingsButton.onClick.AddListener(settingsSelected);
             exitButton.onClick.AddListener(exitSelected);
         }
 
@@ -50,7 +50,7 @@ namespace Game.Menu
         {
             startGameButton.onClick.RemoveListener(startSelected);
             statsButton.onClick.RemoveListener(statsSelected);
-            //settingsButton.onClick.RemoveListener(settingsSelected);
+            settingsButton.onClick.RemoveListener(settingsSelected);
             exitButton.onClick.RemoveListener(exitSelected);
         }
 
@@ -86,6 +86,15 @@ namespace Game.Menu
 
         private void settingsSelected()
         {
+            settingsPopup.Open(new SettingsPopupData(
+                descriptionData: "",
+                headerData: "Settings",
+                useAcceptButton: false,
+                useDeclineButton: true,
+                popupAccepted: null,
+                popupDeclined: settingsClosed
+            ));
+
             OnSettingsSelected?.Invoke();
         }
 
@@ -117,6 +126,13 @@ namespace Game.Menu
         private void statsClosed(IPopup popup)
         {
             statsPopup.Close();
+        }
+        #endregion
+
+        #region SettingsPopup
+        private void settingsClosed(IPopup popup)
+        {
+            settingsPopup.Close();
         }
         #endregion
 

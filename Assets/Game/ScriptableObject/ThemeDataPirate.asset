@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Game::Game.Save.Theme.ThemeDataSO
   themeName: Pirate
   gameEnvironment: {fileID: 5456275850897304294, guid: 9817fa18b5d2340b1982873e2b0b2f1c, type: 3}
+  boardClickP1: {fileID: 8300000, guid: 9b2fac1f3790e40809bd9d519cdb0548, type: 3}
+  boardClickP2: {fileID: 8300000, guid: 8df05d0b8446f4fd3b1f6ad86d545b19, type: 3}
+  winnerAudio: {fileID: 8300000, guid: 1575135aa27bf4310844638489ba30fb, type: 3}
   tile: {fileID: 8872450864283951417, guid: 3950e75de07834e898ab9fbceb00b41e, type: 3}
   tileObject:
   - {fileID: -3303874152353379814, guid: 4721c715ae0ee41a9a74938d886014ce, type: 3}

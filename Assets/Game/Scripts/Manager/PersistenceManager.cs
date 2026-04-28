@@ -13,6 +13,7 @@ namespace Game.Manager
         [SerializeField] private SceneManager sceneManager;
         [SerializeField] private ThemeManager themeManager;
         [SerializeField] private ScreenSettings screenSettings;
+        [SerializeField] private AudioManager audioManager;
 
         public void Awake()
         {
@@ -32,6 +33,7 @@ namespace Game.Manager
         {
             screenSettings.Init();
             globalStats.Init();
+            audioManager.Init();
             sceneManager.Init();
             gameLoopManager.Init();
             themeManager.Init();

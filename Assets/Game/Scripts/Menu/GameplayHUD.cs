@@ -1,6 +1,8 @@
 using System;
 using CustomButton;
+using Game.Popup.Data;
 using Game.Popup.Menu;
+using Popup;
 using TMPro;
 using UnityEngine;
 
@@ -31,11 +33,17 @@ namespace Game.Menu.GameplayHUD
 
         private void settingsClicked()
         {
-            settingsPopup.Open();
-            settingsPopup.DeclineButton.onClick.AddListener(closeSettings);
+            settingsPopup.Open(new SettingsPopupData(
+                descriptionData: "",
+                headerData: "Settings",
+                useAcceptButton: false,
+                useDeclineButton: true,
+                popupAccepted: null,
+                popupDeclined: closeSettings
+            ));
         }
 
-        private void closeSettings()
+        private void closeSettings(IPopup popup)
         {
             settingsPopup.Close();
         }

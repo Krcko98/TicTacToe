@@ -40,9 +40,17 @@ Debug.Log("playing");
             GameController.Instance.gameData.currentActivePlayer = player == 1 ? 2 : 1;
             GameController.Instance.gameData.turnAmount++;
             if(player == 1)
+            {
                 GameController.Instance.gameData.turnPlayer1++;
+
+                AudioManager.Instance.PlaySound(ThemeManager.ActiveTheme.boardClickP1);
+            }
             else
+            {
                 GameController.Instance.gameData.turnPlayer2++;
+
+                AudioManager.Instance.PlaySound(ThemeManager.ActiveTheme.boardClickP2);
+            }
 
             GameController.Instance.HUD.SetMoveCount(GameController.Instance.gameData.turnPlayer1, GameController.Instance.gameData.turnPlayer2);
 
@@ -53,6 +61,9 @@ Debug.Log("playing");
                 saveGameInfo(boardStatus.matchingStatus);
 
                 GameController.Instance.gameData.winningPlayer = boardStatus.matchingStatus;
+
+                AudioManager.Instance.PlaySound(ThemeManager.ActiveTheme.winnerAudio);
+
                 this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
 
                 return;
@@ -61,6 +72,8 @@ Debug.Log("playing");
             if(GameController.Instance.gameData.turnAmount == 9)
             {
                 saveGameInfo(0);
+
+                AudioManager.Instance.PlaySound(ThemeManager.ActiveTheme.winnerAudio);
 
                 this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
             }

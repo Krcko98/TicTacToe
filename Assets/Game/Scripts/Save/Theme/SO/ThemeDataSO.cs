@@ -11,6 +11,11 @@ namespace Game.Save.Theme
     {
         public string themeName;
         public GameObject gameEnvironment;
+
+        public AudioClip boardClickP1;
+        public AudioClip boardClickP2;
+        public AudioClip winnerAudio;
+
         public BoardTile tile;
         public List<BoardTileObject> tileObject;
     }
