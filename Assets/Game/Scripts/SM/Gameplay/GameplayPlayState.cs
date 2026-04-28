@@ -1,8 +1,7 @@
 using Game.Gameplay;
 using Game.Gameplay.Board.Tile;
 using Game.Manager;
-using Game.Popup.Data;
-using Game.SM;
+using Game.Save.Stats;
 using Game.SM.Gameplay.Data;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -51,15 +50,44 @@ Debug.Log("playing");
 
             if(boardStatus.matchingStatus != 0)
             {
+                saveGameInfo(boardStatus.matchingStatus);
+
                 GameController.Instance.gameData.winningPlayer = boardStatus.matchingStatus;
                 this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
+
+                return;
             }
             
             if(GameController.Instance.gameData.turnAmount == 9)
             {
-                Debug.Log("Draw");
+                saveGameInfo(0);
+
                 this.data.gameplaySM.ChangeState(SMGameplay.GameplayState.finishGame);
             }
+        }
+
+        private void saveGameInfo(int playerWon)
+        {
+            StatsData data = GlobalStats.Instance.statsData;
+
+            //Save game data
+            data.gamesPlayed++;
+            if(playerWon == 0)
+            {
+                data.gamesDraw++;
+            }
+            else if(playerWon == 1)
+            {
+                data.player1.gamesWon++;
+            }
+            else if(playerWon == 2)
+            {
+                data.player2.gamesWon++;
+            }
+            data.averageGameDuration = (data.averageGameDuration * (data.gamesPlayed-1) + 
+            GameController.Instance.gameData.timePassed) / data.gamesPlayed;
+
+            GlobalStats.Instance.SaveStats();
         }
 
         public override void Loop()

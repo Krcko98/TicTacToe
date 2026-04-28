@@ -21,5 +21,10 @@ namespace Game.Save.Stats
         {
             statsData = SaveLoad.Load<StatsData>(SaveLoad.PrefType.globalStats);
         }
+
+        public void SaveStats()
+        {
+            SaveLoad.Save<StatsData>(SaveLoad.PrefType.globalStats, statsData);
+        }
     }
 }

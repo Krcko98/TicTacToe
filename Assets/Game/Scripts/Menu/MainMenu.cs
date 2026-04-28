@@ -78,7 +78,7 @@ namespace Game.Menu
                 useDeclineButton: true,
                 popupAccepted: null,
                 popupDeclined: statsClosed,
-                stats: StatsUtils.DefaultStatsData()
+                stats: GlobalStats.Instance.statsData
             ));
 
             OnStatsSelected?.Invoke();

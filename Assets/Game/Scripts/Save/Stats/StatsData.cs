@@ -4,10 +4,10 @@ using UnityEngine;
 namespace Game.Save.Stats
 {
     [Serializable]
-    public struct StatsData
+    public class StatsData
     {
         [Serializable]
-        public struct PlayerStatsData
+        public class PlayerStatsData
         {
             public int playerID;
             public int gamesWon;
@@ -23,14 +23,14 @@ namespace Game.Save.Stats
         }
 
         public int gamesPlayed;
-        public int averageGameDuration;
+        public float averageGameDuration;
         public int gamesDraw;
         public PlayerStatsData player1;
         public PlayerStatsData player2;
 
         public StatsData(
             int gamesPlayed, 
-            int averageGameDuration,
+            float averageGameDuration,
             int gamesDraw,
             PlayerStatsData player1, 
             PlayerStatsData player2

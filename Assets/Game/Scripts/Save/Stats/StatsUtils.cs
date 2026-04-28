@@ -44,8 +44,8 @@ namespace Game.Save.Stats
 
         public static string averageGameDuration(string time)
         {
-            TimeSpan span = new TimeSpan(long.Parse(time));
-            return string.Format($"Average game time : {span:c}");
+            TimeSpan span = TimeSpan.FromSeconds(float.Parse(time));
+            return string.Format("Average game time : {0}", span.ToString(@"mm\:ss"));
         }
     }
 }
