@@ -20,6 +20,10 @@ namespace Game.Save.Stats
         public void LoadAllStats()
         {
             statsData = SaveLoad.Load<StatsData>(SaveLoad.PrefType.globalStats);
+            if(statsData == null)
+            {
+                statsData = StatsUtils.DefaultStatsData();
+            }
         }
 
         public void SaveStats()
